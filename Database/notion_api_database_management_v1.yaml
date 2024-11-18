@@ -52,6 +52,13 @@ paths:
           description: The ID of the database to retrieve.
           schema:
             type: string
+        - name: Notion-Version
+          in: header
+          required: true
+          description: Specifies the version of Notion API to use (e.g. 2022-06-28)
+          schema:
+            type: string
+            default: "2022-06-28"
       responses:
         '200':
           description: Successfully retrieved the database.
@@ -123,6 +130,13 @@ paths:
           description: The ID of the database to query.
           schema:
             type: string
+        - name: Notion-Version
+          in: header
+          required: true
+          description: Specifies the version of Notion API to use (e.g. 2022-06-28)
+          schema:
+            type: string
+            default: "2022-06-28"
       requestBody:
         required: false
         content:
@@ -152,6 +166,7 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+      description: Bearer token authentication with required Notion-Version header (2022-06-28)
       bearerFormat: JWT
 
   schemas:
